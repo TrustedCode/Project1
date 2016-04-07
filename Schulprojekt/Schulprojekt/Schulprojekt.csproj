@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1F0DCA98-43CD-46A8-832C-7F248B7C048F}</ProjectGuid>
+    <ProjectGuid>{85B32148-96FF-4220-AA4A-B085FF11D345}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Schulprojekt</RootNamespace>
@@ -112,9 +112,7 @@
     <Compile Include="Engine\Core\Scene\SceneManager.cs" />
     <Compile Include="Engine\Core\Util\Threading\FastParallel.cs" />
     <Compile Include="Engine\Log\Log.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Form1.cs" />
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>

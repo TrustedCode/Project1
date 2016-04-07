@@ -16,12 +16,12 @@ namespace Animation_Engine
         /// <summary>
         /// Der Haupteinstiegspunkt für die Anwendung.
         /// </summary>
-        [STAThread]
+        /*[STAThread]
         static void Main()
         {
             EngineForm mainWindow = new EngineForm();
             mainWindow.Show();
             Application.Run(mainWindow);
-        }
+        }*/
     }
 }
