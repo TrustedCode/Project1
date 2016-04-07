@@ -1,14 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing;
+using System.Drawing.Text;
+using System.Runtime;
+using System.Runtime.InteropServices;
+using System.Threading;
+using System.Windows.Forms;
+using Animation_Engine.Engine.Core.Graphics;
+using Animation_Engine.Engine.Core.Input;
+using Animation_Engine.Engine.Core.Resource.Cache;
+using Animation_Engine.Engine.Core.Scene;
+using Animation_Engine.Engine.Core.Scene.Camera;
+using Animation_Engine.Engine.Core.Util.Threading;
+using DigitalRune.Diagnostics;
+using OpenTK;
+using OpenTK.Graphics.OpenGL;
+using OpenTK.Input;
+using Stopwatch = System.Diagnostics.Stopwatch;
 
-namespace Schulprojekt.Core
+namespace Animation_Engine.Engine.Core
 {
-    class CoreEngine
+    public class CoreEngine
     {
-        /*
+        [DllImport("kernel32.dll", SetLastError = true)]
+        static extern bool Beep(uint dwFreq, uint dwDuration);
+
         public static readonly HierarchicalProfiler _rootProfiler = new HierarchicalProfiler("Core Profiler");
         private const String PROFILE_ROOT = "_root_engine";
 
@@ -41,7 +56,7 @@ namespace Schulprojekt.Core
             int CACHE_ID = _globalCache.LinkThread();
             Stopwatch watch = new Stopwatch();
             
-            _parallelMgr = FastParallel.Instance(12); // Init for 12 core usage
+            _parallelMgr = FastParallel.Instance(12);
 
             RenderingEngine.InitRenderingEngine(this, _rootProfiler);
             InputManager.InitDevices();
@@ -56,19 +71,18 @@ namespace Schulprojekt.Core
                 _rootProfiler.NewFrame();
                 _rootProfiler.Start(PROFILE_ROOT);
                 
-                InputManager.UpdateDevices(_rootProfiler); // INPUT
-                _sceneManager.UpdateScene(1f / FPS); // UPDATE
+                InputManager.UpdateDevices(_rootProfiler);
+                _sceneManager.UpdateScene(1f / FPS);
 
-                RenderingEngine.Render(); // RENDER
+                RenderingEngine.Render();
 
                 _rootProfiler.Stop();
                 if (InputManager.Keyboard.UpKeys[(int) Key.F1])
                 {
-                    Console.WriteLine(_rootProfiler.Dump(_rootProfiler.Root, 10)); // Profiler output
+                    Console.WriteLine(_rootProfiler.Dump(_rootProfiler.Root, 10));
                 }
                 Application.DoEvents();
                 watch.Stop();
-                //Sleep for 1000/FPS minus elapsed update/rendering time
                 Thread.Sleep((int)Math.Max(0, (1000f / (float)FPS) - watch.Elapsed.TotalMilliseconds));
             }
             ParallelMgr.Dispose();
@@ -122,6 +136,5 @@ namespace Schulprojekt.Core
         {
             get { return _parallelMgr; }
         }
-        */
     }
 }

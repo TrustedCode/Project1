@@ -48,6 +48,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DigitalRune">
+      <HintPath>C:\Users\SvenSt\Documents\C# DLLs\DigitalRune.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\SvenSt\Documents\OpenTK\1.1\Binaries\OpenTK\Release\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.Compatibility, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\SvenSt\Documents\OpenTK\1.1\Binaries\OpenTK\Release\OpenTK.Compatibility.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.GLControl, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\SvenSt\Documents\OpenTK\1.1\Binaries\OpenTK\Release\OpenTK.GLControl.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -61,15 +76,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\CoreEngine.cs" />
+    <Compile Include="EngineForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EngineForm.designer.cs">
+      <DependentUpon>EngineForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Engine\Core\CoreEngine.cs" />
+    <Compile Include="Engine\Core\Event\RendererEvents\EventRenderTargetResizedArgs.cs" />
+    <Compile Include="Engine\Core\Graphics\DeviceContext.cs" />
+    <Compile Include="Engine\Core\Graphics\RenderingEngine.cs" />
+    <Compile Include="Engine\Core\Input\IInputDevice.cs" />
+    <Compile Include="Engine\Core\Input\InputManager.cs" />
+    <Compile Include="Engine\Core\Input\Keyboard.cs" />
+    <Compile Include="Engine\Core\Input\Mouse.cs" />
+    <Compile Include="Engine\Core\MathUtil\MathHelperExt.cs" />
+    <Compile Include="Engine\Core\MathUtil\Transform.cs" />
+    <Compile Include="Engine\Core\NotTestedException.cs" />
+    <Compile Include="Engine\Core\Resource\Cache\ICopyable.cs" />
+    <Compile Include="Engine\Core\Resource\Cache\ThreadCache.cs" />
+    <Compile Include="Engine\Core\Resource\DisposableResource.cs" />
+    <Compile Include="Engine\Core\Resource\Texture\Texture.cs" />
+    <Compile Include="Engine\Core\Resource\Texture\TextureHelper.cs" />
+    <Compile Include="Engine\Core\Resource\Texture\TextureProperties.cs" />
+    <Compile Include="Engine\Core\Scene\Camera\BaseCamera.cs" />
+    <Compile Include="Engine\Core\Scene\Camera\OrthographicCamera.cs" />
+    <Compile Include="Engine\Core\Scene\Camera\PerspectiveCamera.cs" />
+    <Compile Include="Engine\Core\Scene\Camera\Plugins\CameraFreeMove.cs" />
+    <Compile Include="Engine\Core\Scene\Camera\Plugins\ICameraCallback.cs" />
+    <Compile Include="Engine\Core\Scene\Scenegraph\FX\WaterFoil\WaterFoil.cs" />
+    <Compile Include="Engine\Core\Scene\Scenegraph\FX\WaterFoil\WaterFoilPatch.cs" />
+    <Compile Include="Engine\Core\Scene\Scenegraph\Model\BasicBlock.cs" />
+    <Compile Include="Engine\Core\Scene\Scenegraph\SGNode.cs" />
+    <Compile Include="Engine\Core\Scene\Scenegraph\SGRootNode.cs" />
+    <Compile Include="Engine\Core\Scene\SceneManager.cs" />
+    <Compile Include="Engine\Core\Util\Threading\FastParallel.cs" />
+    <Compile Include="Engine\Log\Log.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemEntry.cs" />
+    <EmbeddedResource Include="EngineForm.resx">
+      <DependentUpon>EngineForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
